@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>org.galaxyworld.flycode</id>
-    <name>flycode</name>
+    <name>FlyCode</name>
     <vendor email="support@galaxyworld.org" url="http://www.galaxyworld.org">GalaxyWorld</vendor>
 
     <description><![CDATA[
@@ -9,19 +9,14 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <depends>com.intellij.database</depends>
     <depends>com.intellij.modules.java</depends>
+    <depends optional="true" config-file="withDatabase.xml">com.intellij.database</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
     <actions>
-        <group id="FlyCodePlugin.DataSourceMenu" text="FlyCode" popup="true">
-            <add-to-group group-id="DatabaseViewPopupMenu" relative-to-action="DatabaseView.ToolsPopup" anchor="before" />
-            <action id="org.galaxyworld.flycode.action.HelloAction" class="org.galaxyworld.flycode.action.HelloAction"
-                    text="Java" description="Generate Java entities, controllers and services from database tables.">
-            </action>
-        </group>
+
     </actions>
 </idea-plugin>

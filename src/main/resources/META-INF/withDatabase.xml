@@ -1,0 +1,10 @@
+<idea-plugin>
+    <actions>
+        <group id="FlyCodePlugin.DataSourceMenu" text="FlyCode" popup="true">
+            <add-to-group group-id="DatabaseViewPopupMenu" relative-to-action="DatabaseView.ToolsPopup" anchor="before" />
+            <action id="org.galaxyworld.flycode.action.DbTableFakeAction" class="org.galaxyworld.flycode.action.DbTableFakeAction"
+                    text="Generates fake data..." description="Generate fake data for selected database tables.">
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
