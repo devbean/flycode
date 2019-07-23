@@ -11,7 +11,6 @@ public class DbTableFakeAction extends DbTableAction {
 
     @Override
     void doWithSelectedDbTables(@NotNull List<DatabaseTable> tables, @NotNull Project project) {
-        System.out.println(tables);
         DbTableFakeWizardDialog dialog = new DbTableFakeWizardDialog(tables, project);
         dialog.show();
     }
