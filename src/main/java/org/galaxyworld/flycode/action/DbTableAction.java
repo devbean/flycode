@@ -6,6 +6,7 @@ import com.intellij.database.view.DatabaseView;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
+import org.galaxyworld.flycode.model.DatabaseTable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public abstract class DbTableAction extends AnAction {
      * @param tables Maybe empty.
      * @param project Project related to this action.
      */
-    abstract void doWithSelectedDbTables(@NotNull List<DbTable> tables, @NotNull Project project);
+    abstract void doWithSelectedDbTables(@NotNull List<DatabaseTable> tables, @NotNull Project project);
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -26,10 +27,11 @@ public abstract class DbTableAction extends AnAction {
         if (project == null) {
             return;
         }
-        List<DbTable> tables = DatabaseView.getSelectedElements(e.getDataContext(), DbElement.class)
+        List<DatabaseTable> tables = DatabaseView.getSelectedElements(e.getDataContext(), DbElement.class)
                 .stream()
                 .filter(dbElement -> dbElement instanceof DbTable)
                 .map(dbElement -> (DbTable) dbElement)
+                .map(DatabaseTable::new)
                 .collect(Collectors.toList());
         doWithSelectedDbTables(tables, project);
     }
