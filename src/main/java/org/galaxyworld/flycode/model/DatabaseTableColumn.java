@@ -2,14 +2,16 @@ package org.galaxyworld.flycode.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+@ToString
 public class DatabaseTableColumn {
 
 //    @Setter @Getter
 //    private Type type;
 
-    @Getter
-    private String sqlName;
+//    @Getter
+//    private String sqlName;
 
     @Setter @Getter
     private String name;
